@@ -66,13 +66,14 @@ Thumbs.db
 
 # ------------------------------------------------------------
 # Demo output
-# !!!WARNING!!! Students, consider this when committing code
-# Remove this section if you do not want to ignore demo output
 # !!!MODIFIED!!! Now includes demo_output, PNG and TXT files
+# All output directories and visualization files are tracked
 # ------------------------------------------------------------
-demo_output/
-# *.png    <- REMOVED to include visualization files
-# *.txt    <- REMOVED to include analysis reports
+# demo_output/ <- COMMENTED OUT to include in repo
+# simulated_analysis/ <- COMMENTED OUT to include in repo
+# agglomerative_analysis/ <- COMMENTED OUT to include in repo
+# *.png <- COMMENTED OUT to include visualization files
+# *.txt <- COMMENTED OUT to include analysis reports
 
 # ------------------------------------------------------------
 # Tests temporary files
