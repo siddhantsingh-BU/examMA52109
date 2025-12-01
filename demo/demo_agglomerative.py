@@ -80,7 +80,7 @@ def main():
     print("-" * 80)
 
     X_standardised = standardise_features(X)
-    print(f"✓ Data standardised")
+    print(f"[OK] Data standardised")
     print(f"  Mean: {X_standardised.mean():.6f}")
     print(f"  Std Dev: {X_standardised.std():.6f}")
 
@@ -132,7 +132,7 @@ def main():
     metrics_df = pd.DataFrame(metrics_data)
     metrics_path = os.path.join(OUTPUT_DIR, "linkage_comparison.csv")
     metrics_df.to_csv(metrics_path, index=False)
-    print(f"\n✓ Linkage comparison metrics saved to: {metrics_path}")
+    print(f"\n[OK] Linkage comparison metrics saved to: {metrics_path}")
 
     # =========================================================================
     # STEP 5: Generate Visualizations
@@ -153,7 +153,7 @@ def main():
         plot_path = os.path.join(OUTPUT_DIR, f"clustering_{method}.png")
         fig.savefig(plot_path, dpi=150, bbox_inches="tight")
         plt.close(fig)
-        print(f"  ✓ {plot_path}")
+        print(f"  [OK] {plot_path}")
 
     # 5b: Comparison plot showing all methods side-by-side
     print(f"\nGenerating comparison plot...")
@@ -182,7 +182,7 @@ def main():
     comparison_path = os.path.join(OUTPUT_DIR, "linkage_comparison.png")
     fig.savefig(comparison_path, dpi=150, bbox_inches="tight")
     plt.close(fig)
-    print(f"  ✓ {comparison_path}")
+    print(f"  [OK] {comparison_path}")
 
     # 5c: Dendrograms for each method (sample-based for large datasets)
     print(f"\nGenerating dendrograms (using random sample for large dataset)...")
@@ -203,7 +203,7 @@ def main():
             dendrogram_path = os.path.join(OUTPUT_DIR, f"dendrogram_{method}.png")
             fig.savefig(dendrogram_path, dpi=100, bbox_inches="tight")
             plt.close(fig)
-            print(f"  ✓ {dendrogram_path}")
+            print(f"  [OK] {dendrogram_path}")
     else:
         # For small datasets, show full dendrograms
         for method in LINKAGE_METHODS:
@@ -217,7 +217,7 @@ def main():
             dendrogram_path = os.path.join(OUTPUT_DIR, f"dendrogram_{method}.png")
             fig.savefig(dendrogram_path, dpi=150, bbox_inches="tight")
             plt.close(fig)
-            print(f"  ✓ {dendrogram_path}")
+            print(f"  [OK] {dendrogram_path}")
 
     # =========================================================================
     # STEP 6: Export Clustered Data
@@ -235,7 +235,7 @@ def main():
 
     clustered_path = os.path.join(OUTPUT_DIR, "difficult_data_clustered.csv")
     df_clustered.to_csv(clustered_path, index=False)
-    print(f"✓ Clustered data exported to: {clustered_path}")
+    print(f"[OK] Clustered data exported to: {clustered_path}")
 
     # =========================================================================
     # STEP 7: Generate Analysis Report
@@ -320,13 +320,13 @@ Analysis Complete. All results saved to: {OUTPUT_DIR}/
     report_path = os.path.join(OUTPUT_DIR, "ANALYSIS_REPORT.txt")
     with open(report_path, "w") as f:
         f.write(summary_report)
-    print("✓ Analysis report saved")
+    print("[OK] Analysis report saved")
 
     # =========================================================================
     # FINAL SUMMARY
     # =========================================================================
     print("\n" + summary_report)
-    print("\n✓ All analyses complete!")
+    print("\n[OK] All analyses complete!")
 
 
 if __name__ == "__main__":

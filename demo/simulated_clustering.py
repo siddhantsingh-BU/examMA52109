@@ -103,7 +103,7 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "correlation_matrix.png"), dpi=150, bbox_inches="tight")
     plt.close(fig)
-    print("✓ Correlation matrix plot saved")
+    print("[OK] Correlation matrix plot saved")
     
     # =========================================================================
     # STEP 3: DATA PREPROCESSING
@@ -116,7 +116,7 @@ def main() -> None:
     print(f"Data array shape: {X.shape}")
     
     X_scaled = standardise_features(X)
-    print(f"✓ Data standardised (mean={X_scaled.mean():.6f}, std={X_scaled.std():.6f})")
+    print(f"[OK] Data standardised (mean={X_scaled.mean():.6f}, std={X_scaled.std():.6f})")
     
     # =========================================================================
     # STEP 4: ELBOW ANALYSIS - FIND OPTIMAL K
@@ -163,7 +163,7 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "elbow_curve.png"), dpi=150, bbox_inches="tight")
     plt.close(fig)
-    print("\n✓ Elbow curve plot saved")
+    print("\n[OK] Elbow curve plot saved")
     
     # =========================================================================
     # STEP 5: DETAILED CLUSTERING QUALITY ANALYSIS
@@ -222,7 +222,7 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "quality_metrics.png"), dpi=150, bbox_inches="tight")
     plt.close(fig)
-    print("\n✓ Quality metrics plot saved")
+    print("\n[OK] Quality metrics plot saved")
     
     # =========================================================================
     # STEP 6: OPTIMAL CLUSTERING AND VISUALIZATION
@@ -271,7 +271,7 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "optimal_clustering.png"), dpi=150, bbox_inches="tight")
     plt.close(fig)
-    print("\n✓ Clustering visualization saved")
+    print("\n[OK] Clustering visualization saved")
     
     # Plot cluster sizes
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -292,7 +292,7 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "cluster_distribution.png"), dpi=150, bbox_inches="tight")
     plt.close(fig)
-    print("✓ Cluster distribution plot saved")
+    print("[OK] Cluster distribution plot saved")
     
     # =========================================================================
     # STEP 7: EXPORT RESULTS
@@ -304,7 +304,7 @@ def main() -> None:
     df_output = df.copy()
     df_output["cluster"] = labels
     df_output.to_csv(os.path.join(OUTPUT_DIR, "simulated_data_clustered.csv"), index=False)
-    print("✓ Clustered data exported")
+    print("[OK] Clustered data exported")
     
     # Create analysis summary report
     summary_report = f"""
@@ -364,13 +364,13 @@ Analysis Complete. All results saved to: {OUTPUT_DIR}/
     
     with open(os.path.join(OUTPUT_DIR, "ANALYSIS_REPORT.txt"), "w") as f:
         f.write(summary_report)
-    print("✓ Analysis report saved")
+    print("[OK] Analysis report saved")
     
     # =========================================================================
     # FINAL SUMMARY
     # =========================================================================
     print("\n" + summary_report)
-    print("\n✓ All analyses complete!")
+    print("\n[OK] All analyses complete!")
 
 
 if __name__ == "__main__":
