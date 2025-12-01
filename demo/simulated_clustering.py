@@ -138,7 +138,7 @@ def main() -> None:
         k1, k2 = k_values[i], k_values[i + 1]
         decrease = inertia_dict[k1] - inertia_dict[k2]
         pct_decrease = 100 * decrease / inertia_dict[k1]
-        print(f"  k={k1}→{k2}: {decrease:10.4f} ({pct_decrease:5.1f}% improvement)")
+        print(f"  k={k1}->{k2}: {decrease:10.4f} ({pct_decrease:5.1f}% improvement)")
     
     # Plot elbow curve
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -325,7 +325,7 @@ Data Characteristics:
 Elbow Analysis Results:
   - Tested k values: 1 to 10
   - Elbow point identified at: k = 3
-  - Rationale: Sharp decrease in inertia from k=1→3, then diminishing returns
+  - Rationale: Sharp decrease in inertia from k=1->3, then diminishing returns
 
 Optimal Clustering Solution (k=3):
   - Silhouette Score: {final_silhouette:.4f}
