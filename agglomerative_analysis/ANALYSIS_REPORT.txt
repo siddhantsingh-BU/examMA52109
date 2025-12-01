@@ -1,0 +1,64 @@
+
+================================================================================
+HIERARCHICAL CLUSTERING ANALYSIS REPORT
+================================================================================
+
+Dataset Information:
+  - File: data/difficult_dataset.csv
+  - Samples: 1200
+  - Features: 2
+  - Feature names: x, y
+
+Data Characteristics:
+  - Data range: x in [-4.28, 4.31]
+  - Data range: y in [-4.21, 4.25]
+  - Standardised: mean~=0, std~=1
+
+Hierarchical Clustering Configuration:
+  - Algorithm: Agglomerative Clustering (scikit-learn)
+  - Target clusters: 3
+  - Linkage methods tested: ward, complete, average, single
+
+Linkage Method Comparison:
+  Method       | Silhouette | Clusters
+  ----------------------------------------
+  ward         |     0.2714 |        3
+  complete     |     0.2666 |        3
+  average      |     0.1931 |        3
+  single       |     0.1490 |        3
+
+Best Method Selection:
+  - Selected method: WARD
+  - Rationale: Produces the highest silhouette score, indicating better-defined clusters
+  - Final clusters: 3
+
+Cluster Distribution (using ward linkage):
+  - Cluster 0: 740 points (61.7%)
+  - Cluster 1: 247 points (20.6%)
+  - Cluster 2: 213 points (17.8%)
+
+Key Findings:
+  1. Hierarchical clustering with different linkage methods produces varied results
+  2. WARD linkage provides the best cluster separation for this dataset
+  3. The difficult dataset shows complex structure requiring careful method selection
+  4. Non-convex cluster shapes are better handled by hierarchical methods
+
+Advantages of Hierarchical Clustering:
+  - Creates a dendrogram showing the clustering hierarchy
+  - No need to specify k in advance (cut at different levels)
+  - Can handle non-convex clusters better than k-means
+  - Multiple linkage options allow flexibility for different data structures
+
+Visualizations Generated:
+  - clustering_[method].png: 2D plots for each linkage method
+  - linkage_comparison.png: Side-by-side comparison of all methods
+  - dendrogram_[method].png: Full dendrograms showing hierarchy
+
+Output Files:
+  - difficult_data_clustered.csv: Original data with cluster labels (ward linkage)
+  - linkage_comparison.csv: Silhouette scores for each linkage method
+  - All PNG visualizations in agglomerative_analysis/
+
+================================================================================
+Analysis Complete. All results saved to: agglomerative_analysis/
+================================================================================

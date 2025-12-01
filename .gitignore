@@ -68,10 +68,11 @@ Thumbs.db
 # Demo output
 # !!!WARNING!!! Students, consider this when committing code
 # Remove this section if you do not want to ignore demo output
+# !!!MODIFIED!!! Now includes PNG and TXT for analysis outputs
 # ------------------------------------------------------------
 demo_output/
-*.png
-*.txt
+# *.png    <- REMOVED to include visualization files
+# *.txt    <- REMOVED to include analysis reports
 
 # ------------------------------------------------------------
 # Tests temporary files
