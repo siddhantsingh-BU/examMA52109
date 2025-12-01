@@ -32,6 +32,14 @@ from .algorithms import (
     update_centroids,
 )
 
+# --- Hierarchical clustering ---
+from .agglomerative import (
+    hierarchical_clustering,
+    compare_linkage_methods,
+    get_linkage_matrix,
+    test_cluster_count_range,
+)
+
 # --- Evaluation ---
 from .evaluation import (
     compute_inertia,
@@ -69,6 +77,12 @@ __all__ = [
     "init_centroids",
     "assign_clusters",
     "update_centroids",
+
+    # Hierarchical clustering
+    "hierarchical_clustering",
+    "compare_linkage_methods",
+    "get_linkage_matrix",
+    "test_cluster_count_range",
 
     # Evaluation
     "compute_inertia",
