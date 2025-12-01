@@ -70,7 +70,7 @@ Thumbs.db
 # Remove this section if you do not want to ignore demo output
 # !!!MODIFIED!!! Now includes demo_output, PNG and TXT files
 # ------------------------------------------------------------
-# demo_output/    <- REMOVED to include demo output directory
+demo_output/
 # *.png    <- REMOVED to include visualization files
 # *.txt    <- REMOVED to include analysis reports
 
