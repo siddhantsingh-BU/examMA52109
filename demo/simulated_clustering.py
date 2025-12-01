@@ -61,7 +61,7 @@ def main() -> None:
     print("-" * 70)
     
     df = pd.read_csv(input_path)
-    print(f"Dataset shape: {df.shape[0]} samples × {df.shape[1]} features")
+    print(f"Dataset shape: {df.shape[0]} samples x {df.shape[1]} features")
     print(f"\nFirst 5 rows:")
     print(df.head())
     
