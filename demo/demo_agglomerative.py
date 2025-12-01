@@ -193,12 +193,22 @@ def main():
         X_sample = X_standardised[sample_indices]
         
         for method in LINKAGE_METHODS:
-            fig, ax = plt.subplots(figsize=(12, 6))
+            fig, ax = plt.subplots(figsize=(16, 8))
             Z = get_linkage_matrix(X_sample, linkage_method=method)
-            dendrogram(Z, ax=ax, leaf_font_size=7)
-            ax.set_title(f"Dendrogram ({method.capitalize()} Linkage, sample of {sample_size} points)")
-            ax.set_xlabel("Sample Index")
-            ax.set_ylabel("Distance")
+            dendrogram(Z, ax=ax, leaf_font_size=8, leaf_rotation=90, no_labels=False)
+            ax.set_title(f"Dendrogram ({method.capitalize()} Linkage, sample of {sample_size} points)", fontsize=14, pad=20)
+            ax.set_xlabel("Sample Index", fontsize=12)
+            ax.set_ylabel("Distance", fontsize=12)
+            ax.grid(True, alpha=0.3, axis='y')
+            
+            # Show only every nth x-label to avoid crowding
+            xticks = ax.get_xticks()
+            step = max(1, int(len(xticks) / 15))  # Show ~15 labels
+            new_ticks = xticks[::step]
+            new_labels = [str(int(x)) for x in new_ticks]
+            ax.set_xticks(new_ticks)
+            ax.set_xticklabels(new_labels, fontsize=9)
+            
             fig.tight_layout()
             dendrogram_path = os.path.join(OUTPUT_DIR, f"dendrogram_{method}.png")
             fig.savefig(dendrogram_path, dpi=100, bbox_inches="tight")
@@ -207,12 +217,22 @@ def main():
     else:
         # For small datasets, show full dendrograms
         for method in LINKAGE_METHODS:
-            fig, ax = plt.subplots(figsize=(10, 6))
+            fig, ax = plt.subplots(figsize=(14, 7))
             Z = get_linkage_matrix(X_standardised, linkage_method=method)
-            dendrogram(Z, ax=ax, leaf_font_size=8)
-            ax.set_title(f"Dendrogram ({method.capitalize()} Linkage)")
-            ax.set_xlabel("Sample Index")
-            ax.set_ylabel("Distance")
+            dendrogram(Z, ax=ax, leaf_font_size=8, leaf_rotation=90, no_labels=False)
+            ax.set_title(f"Dendrogram ({method.capitalize()} Linkage)", fontsize=14, pad=20)
+            ax.set_xlabel("Sample Index", fontsize=12)
+            ax.set_ylabel("Distance", fontsize=12)
+            ax.grid(True, alpha=0.3, axis='y')
+            
+            # Show only every nth x-label to avoid crowding
+            xticks = ax.get_xticks()
+            step = max(1, int(len(xticks) / 15))  # Show ~15 labels
+            new_ticks = xticks[::step]
+            new_labels = [str(int(x)) for x in new_ticks]
+            ax.set_xticks(new_ticks)
+            ax.set_xticklabels(new_labels, fontsize=9)
+            
             fig.tight_layout()
             dendrogram_path = os.path.join(OUTPUT_DIR, f"dendrogram_{method}.png")
             fig.savefig(dendrogram_path, dpi=150, bbox_inches="tight")
